@@ -1,0 +1,229 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&display=swap');
+
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+  overflow: hidden;
+  color: #ffffff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.app {
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+  color: #fff;
+}
+
+.overlay {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 30px 20px 20px;
+  min-height: 100vh;
+  background: linear-gradient(
+          135deg,
+          rgba(0, 0, 0, 0.2) 0%,
+          rgba(0, 0, 0, 0.1) 50%,
+          rgba(0, 0, 0, 0.3) 100%
+  );
+}
+
+.title {
+  font-size: 1.8rem;
+  font-weight: 300;
+  margin-bottom: 30px;
+  text-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  letter-spacing: -0.5px;
+}
+
+.search-container {
+  position: relative;
+  margin-bottom: 20px;
+  width: 100%;
+  max-width: 400px;
+}
+
+.search-box {
+  display: flex;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50px;
+  overflow: hidden;
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+.search-box input {
+  flex: 1;
+  padding: 15px 20px;
+  border: none;
+  background: transparent;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 300;
+  outline: none;
+  font-family: inherit;
+}
+
+.search-box input::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+  font-weight: 300;
+}
+
+.search-box button {
+  padding: 15px 20px;
+  border: none;
+  background: rgba(255, 255, 255, 0.15);
+  color: white;
+  font-size: 1rem;
+  font-weight: 400;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
+  min-width: 60px;
+  max-width: 60px;
+  width: 60px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-box button:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.search-icon {
+  width: 18px;
+  height: 18px;
+  opacity: 0.8;
+}
+
+.error {
+  color: #ff6b6b;
+  font-weight: 400;
+  margin-top: 15px;
+  padding: 10px 20px;
+  background: rgba(255, 107, 107, 0.1);
+  border-radius: 8px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 107, 107, 0.2);
+  font-size: 0.9rem;
+}
+
+/* Animazioni fluide */
+.search-box input:focus {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.search-box:hover {
+  border-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3);
+}
+
+/* Loading state */
+.search-box.loading button {
+  background: rgba(255, 255, 255, 0.1);
+  cursor: not-allowed;
+  min-width: 60px;
+  max-width: 60px;
+  width: 60px;
+}
+
+.search-box.loading button::after {
+  content: "";
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top: 2px solid #fff;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.footer {
+  margin-top: auto;
+  padding: 30px 20px 20px;
+  text-align: center;
+  width: 100%;
+  max-width: 900px;
+}
+
+.footer-text {
+  font-size: 0.85rem;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.8);
+  margin: 0 0 8px 0;
+  line-height: 1.4;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.footer-subtitle {
+  font-size: 0.8rem;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.6);
+  margin: 0;
+  line-height: 1.3;
+  text-shadow: 0 2px 8px rgba(173, 216, 230, 0.25);
+}
+
+.footer-text strong,
+.footer-subtitle strong {
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* Responsive adjustments */
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .overlay {
+    padding: 20px 15px 15px;
+  }
+
+  .title {
+    font-size: 1.5rem;
+    margin-bottom: 25px;
+  }
+
+  .search-container {
+    max-width: 350px;
+  }
+
+  .search-box input {
+    padding: 12px 18px;
+    font-size: 0.95rem;
+  }
+
+  .search-box button {
+    padding: 12px 16px;
+    min-width: 50px;
+    max-width: 50px;
+    width: 50px;
+  }
+
+  .footer {
+    padding: 25px 15px 15px;
+  }
+
+  .footer-text {
+    font-size: 0.8rem;
+  }
+
+  .footer-subtitle {
+    font-size: 0.75rem;
+  }
+}
